@@ -7,21 +7,21 @@ import static org.junit.jupiter.api.Assertions.*;
 class StatsServiceTest {
 
     @Test
-    void calculateSum(){
+    void calculateSum() {
         StatsService service = new StatsService();
         long[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 180;
         long actual = service.calculateSum(purchases);
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 
     @Test
-    void calculateAverage(){
+    void calculateAverage() {
         StatsService service = new StatsService();
         long[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 15;
         long actual = service.calculateAverage(purchases);
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 
     @Test

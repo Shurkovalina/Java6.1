@@ -55,12 +55,12 @@ public class StatsService {
             sum += purchase;
         }
         long average = sum / purchases.length;
-        for (int i=0; i < purchases.length; i++) {
+        for (int i = 0; i < purchases.length; i++) {
             if (purchases[i] < average)
                 num++;
         }
         return num;
-        }
+    }
 
     public long aboveAverage(long[] purchases) {
         long sum = 0;
@@ -69,7 +69,7 @@ public class StatsService {
             sum += purchase;
         }
         long average = sum / purchases.length;
-        for (int i=0; i < purchases.length; i++) {
+        for (int i = 0; i < purchases.length; i++) {
             if (purchases[i] > average)
                 num++;
         }
