@@ -11,23 +11,15 @@ public class StatsService {
     }
 
     public long calculateAverage(long[] purchases) {
-        long sum = 0;
-        for (long purchase : purchases) {
-            sum += purchase;
-        }
-        return sum / purchases.length;
+        return calculateSum(purchases) / purchases.length;
     }
 
     public long calculateMaxIndex(long[] purchases) {
         int numMax = 0;
         for (int i = 0; i < purchases.length; i++) {
-            if (purchases[i] > purchases[numMax]) {
+            if (purchases[i] >= purchases[numMax]) {
                 numMax = i;
             }
-        }
-        for (int i = 0; i < purchases.length; i++) {
-            if (purchases[i] == purchases[numMax])
-                numMax = i;
         }
 //        прибавляем 1, чтобы найти номер максимального элемента, а не его индекс
         return numMax + 1;
@@ -36,25 +28,17 @@ public class StatsService {
     public long calculateMinIndex(long[] purchases) {
         int numMin = 0;
         for (int i = 0; i < purchases.length; i++) {
-            if (purchases[i] < purchases[numMin]) {
+            if (purchases[i] <= purchases[numMin]) {
                 numMin = i;
             }
-        }
-        for (int i = 0; i < purchases.length; i++) {
-            if (purchases[i] == purchases[numMin])
-                numMin = i;
         }
 //        прибавляем 1, чтобы найти номер максимального элемента, а не его индекс
         return numMin + 1;
     }
 
     public long belowAverage(long[] purchases) {
-        long sum = 0;
         int num = 0;
-        for (long purchase : purchases) {
-            sum += purchase;
-        }
-        long average = sum / purchases.length;
+        long average = calculateSum(purchases) / purchases.length;
         for (int i = 0; i < purchases.length; i++) {
             if (purchases[i] < average)
                 num++;
@@ -63,12 +47,8 @@ public class StatsService {
     }
 
     public long aboveAverage(long[] purchases) {
-        long sum = 0;
         int num = 0;
-        for (long purchase : purchases) {
-            sum += purchase;
-        }
-        long average = sum / purchases.length;
+        long average = calculateSum(purchases) / purchases.length;
         for (int i = 0; i < purchases.length; i++) {
             if (purchases[i] > average)
                 num++;
